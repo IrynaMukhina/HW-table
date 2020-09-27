@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'table-directives';
+  public data = [
+    { value: 1 },
+    { value: 2 },
+  ];
 }
