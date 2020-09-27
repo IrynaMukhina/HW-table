@@ -1,0 +1,28 @@
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let column of columnList; let i=index">
+        <ng-template
+          [ngTemplateOutlet]="column.headerTemplate.template"
+          [ngTemplateOutletContext]="{rowIndex: i}">
+        </ng-template>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td *ngFor="let column of columnList; let columnIndex=index">
+        <ng-template
+          [ngTemplateOutlet]="tableCell"
+          [ngTemplateOutletContext]="{columnIndex: columnIndex, column: column}">
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #tableCell let-cell="cell" let-columnIndex="columnIndex" let-column="column">
+  <span
+    [ngTemplateOutlet]="column.cellTemplates.toArray()[0].template">
+  </span>
+</ng-template>
